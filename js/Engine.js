@@ -11,9 +11,13 @@ class Engine {
     // We create our hamburger.
     // Please refer to Player.js for more information about what happens when you create a player
     this.player = new Player(this.root);
+
+    console.log(this.player);
     // Initially, we have no enemies in the game. The enemies property refers to an array
     // that contains instances of the Enemy class
     this.enemies = [];
+
+    console.log(this.enemies);
     // We add the background image to the game
     addBackground(this.root);
   }
@@ -57,9 +61,11 @@ class Engine {
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
-      window.alert('Game over');
+      window.alert("Game over");
       return;
     }
+
+    console.log(this.isPlayerDead);
 
     // If the player is not dead, then we put a setTimeout to run the gameLoop in 20 milliseconds
     setTimeout(this.gameLoop, 20);
@@ -68,6 +74,23 @@ class Engine {
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
   isPlayerDead = () => {
-    return false;
+    let playerIsDead = false;
+    this.enemies.forEach((enemy) => {
+      //  console.log(this.player.x);
+      //  console.log(this.enemies[0]);
+
+      // console.log(enemy.y);
+      // console.log(this.player.y);
+
+      if (enemy.x === this.player.x && enemy.y + ENEMY_HEIGHT > this.player.y) {
+        console.log("hello");
+        playerIsDead = true;
+      }
+    });
+
+    return playerIsDead;
   };
+
+  //  Player {x: 150, domElement: img}
+  // Enemy {root: div#app, spot: 3, x: 225, y: 497.45848373773805, destroyed: false, …}
 }
