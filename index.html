@@ -1,11 +1,31 @@
 <html>
   <head>
     <title>Nyan Kat</title>
+    <style>
+      .button {
+        background-color: rgb(3, 3, 54);
+        color: white;
+        position: absolute;
+        font-size: 30px;
+        z-index: 1000;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      }
+
+      .button:hover {
+        background-color: yellow;
+        color: violet;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
+    <audio autoplay src="music/music.mp3"></audio>
+    <audio class="point" src="music/point.mp3"></audio>
+    <button class="button" onclick="window.location.reload()">RESTART</button>
     <script src="js/data.js"></script>
+    <script src="js/Text.js"></script>
     <script src="js/Enemy.js"></script>
+    <script src="js/fries.js"></script>
     <script src="js/engine-utilities.js"></script>
     <script src="js/Engine.js"></script>
     <script src="js/Player.js"></script>
